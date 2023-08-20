@@ -4,6 +4,12 @@ This is a simple guide on how to create a video calling app using the Agora plat
 
 ![Video Calling App](app_screenshot.png)
 
+In picture,
+@reeya - https://www.linkedin.com/in/reeya-agarwal-382502210/
+@kamal - https://www.linkedin.com/in/kamalsonikgp/
+@akshay - https://www.linkedin.com/in/akshaykumarid/
+@sindhu - https://www.linkedin.com/in/sindhuvankudoth/
+
 ## Prerequisites
 
 - Python (3.6 or higher)
