@@ -1,45 +1,82 @@
-# MyChat
+# Video Calling App using Agora and Django
 
-## Description 
-A Group video calling application using the Agora Web SDK with a Django backend.
+This is a simple guide on how to create a video calling app using the Agora platform and Django framework. The app allows users to make video calls with each other in a web browser. Before you begin, make sure you have the necessary Agora API keys.
 
-##  How to use this source code
+![Video Calling App](app_screenshot.png)
 
-#### 1 - Clone repo
-```
-git clone https://github.com/divanov11/mychat
-```
+## Prerequisites
 
-#### 2 - Install requirements
-```
-cd mychat
-pip install -r requirements.txt
-```
+- Python (3.6 or higher)
+- Django (3.0 or higher)
+- Agora Developer Account (API Key and App ID)
+- Basic knowledge of HTML, CSS, and JavaScript
 
-#### 3 - Update Agora credentals
-In order to use this project you will need to replace the agora credentials in `views.py` and `streams.js`.
+## Setup
 
-Create an account at agora.io and create an `app`. Once you create your app, you will want to copy the `appid` & `appCertificate` to update `views.py` and `streams.js`. If you have questions about where to get your app I'd recommend referencing this link `https://youtu.be/HX6AM_1-jNM?t=88`
+1. Clone this repository to your local machine:
+   ```
+   git clone https://github.com/your-username/video-calling-app.git
+   ```
 
-###### views.py
-```
-def getToken(request):
-    appId = "YOUR APP ID"
-    appCertificate = "YOUR APPS CERTIFICATE"
-    ......
-```
+2. Create a virtual environment to manage dependencies:
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-###### streams.js
-```
-....
-const APP_ID = 'YOUR APP ID'
-....
-```
+3. Install required Python packages:
+   ```
+   pip install -r requirements.txt
+   ```
 
+4. Open `your_project/settings.py` and update the `ALLOWED_HOSTS` list to include your development server's IP or domain.
 
-#### 4 - Start server
-```
-python manage.py runserver
-```
+5. Replace `YOUR_AGORA_APP_ID` in `your_app/views.py` with your Agora App ID. It's recommended to use environment variables to store sensitive information like API keys.
 
+6. Run migrations to set up the database:
+   ```
+   python manage.py migrate
+   ```
 
+7. Start the development server:
+   ```
+   python manage.py runserver
+   ```
+
+8. Access the app in your web browser at `http://127.0.0.1:8000/` and test the video calling functionality.
+
+## Changing Agora API Key
+
+For security reasons, you should never hardcode sensitive information like API keys directly in your code. To change the Agora API key in the `views.py` file, follow these steps:
+
+1. Create a file named `.env` in the root directory of your project.
+
+2. Add your Agora App ID and API Key to the `.env` file:
+   ```
+   AGORA_APP_ID=your_app_id
+   AGORA_API_KEY=your_api_key
+   ```
+
+3. Update the `views.py` file to use these environment variables:
+   ```python
+   import os
+
+   agora_app_id = os.environ.get('AGORA_APP_ID')
+   agora_api_key = os.environ.get('AGORA_API_KEY')
+
+   # Use agora_app_id and agora_api_key in your code
+   ```
+
+By using environment variables, you keep your sensitive information secure and separate from your codebase.
+
+## Conclusion
+
+Congratulations! You have successfully created a video calling app using Agora and Django. Users can now enjoy making video calls through your web application.
+
+**Website Link:** [Video Calling App Demo](https://kamal3839.pythonanywhere.com/)
+
+Feel free to customize and enhance the app's features according to your needs.
+
+If you encounter any issues or have questions, refer to the official Agora and Django documentation for help.
+
+Happy coding! 🚀

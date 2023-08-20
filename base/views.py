@@ -19,8 +19,8 @@ def room(request):
 
 
 def getToken(request):
-    appId = "f462a2242e1b4122818862ffd18d9a72"
-    appCertificate = "7a7e2f0660fa4b568d9a9e683f467b98"
+    appId = "API"
+    appCertificate = "appCertificate"
     channelName = request.GET.get('channel')
     uid = random.randint(1, 230)
     expirationTimeInSeconds = 3600
