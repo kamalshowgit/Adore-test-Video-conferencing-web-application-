@@ -1,0 +1,357 @@
+/* ------------------  Global Styling ------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+
+:root {
+    --shadow: 0 12px 25px rgba(0, 0, 0, 0.1), 0 6px 10px rgba(0, 0, 0, 0.08);
+    --primary-color: #ff77ff; /* Soft pink */
+    --secondary-color: #ffb7b7; /* Soft peachy pink */
+    --bg-color-light: #fef6f9; /* Light pastel background */
+    --bg-color-dark: #2f2f2f; /* Soft charcoal dark background */
+    --bg-color-darker: #1a1a1a; /* Deeper dark background */
+    --border-color-light: #f1c7e3; /* Light pastel pink border */
+    --border-color-dark: #ff99cc; /* Dark pastel pink border */
+    --border-color-darker: #ff66b3; /* Deeper pink border */
+    --button-hover: #ff88cc; /* Hover color */
+    --text-color-light: #333;
+    --text-color-dark: #f4f4f4; /* Light text color for dark mode */
+    --text-color-darker: #bbbbbb; /* Soft gray text color */
+}
+
+/* Default light mode */
+body {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode styling */
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+/* Even darker dark mode */
+body.dark-mode.darker {
+    background-color: var(--bg-color-darker);
+    color: var(--text-color-darker);
+}
+
+/* ------------------  Register Page ------------------ */
+#form-container {
+    width: 420px;
+    box-shadow: var(--shadow);
+    background-color: white;
+    padding: 30px;
+    border-radius: 40px; /* More rounded */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode #form-container {
+    background-color: #333;
+    box-shadow: var(--shadow);
+}
+
+body.dark-mode.darker #form-container {
+    background-color: #222;
+}
+
+#logo {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+#welcome-message {
+    margin-bottom: 30px;
+}
+
+#welcome-message h1 {
+    font-size: 36px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+#welcome-message p {
+    font-size: 18px;
+    color: var(--text-color-light);
+    font-weight: 300;
+}
+
+body.dark-mode .welcome-message p {
+    color: var(--text-color-dark);
+}
+
+body.dark-mode.darker .welcome-message p {
+    color: var(--text-color-darker);
+}
+
+/* Form Fields */
+.form-field {
+    margin-bottom: 25px;
+}
+
+.form-field label {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color-light);
+}
+
+body.dark-mode .form-field label {
+    color: var(--text-color-dark);
+}
+
+body.dark-mode.darker .form-field label {
+    color: var(--text-color-darker);
+}
+
+.form-field input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px; /* More rounded */
+    border: 2px solid var(--border-color-light);
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+body.dark-mode .form-field input {
+    border-color: var(--border-color-dark);
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode.darker .form-field input {
+    border-color: var(--border-color-darker);
+    background-color: #333;
+}
+
+.form-field input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
+}
+
+.form-field input[type='submit'] {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 18px;
+    font-size: 18px;
+    border-radius: 40px; /* More rounded */
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* ------------------ Join Stream Button ------------------ */
+.form-field input[type='submit'] {
+    background-color: var(--primary-color); /* Keep pink color */
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Keep pink color even on hover */
+.form-field input[type='submit']:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 450px) {
+    #form-container {
+        width: 90%;
+    }
+
+    #welcome-message h1 {
+        font-size: 28px;
+    }
+}
+
+/* ----------------- Room Styling ------------------ */
+#room-name-wrapper {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-color-light);
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+body.dark-mode #room-name-wrapper {
+    color: var(--text-color-dark);
+}
+
+body.dark-mode.darker #room-name-wrapper {
+    color: var(--text-color-darker);
+}
+
+#video-streams {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    height: 80vh;
+    width: 95%;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.video-container {
+    flex-basis: 450px;
+    flex-grow: 1;
+    max-height: 100%;
+    min-height: 300px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px; /* More rounded */
+    margin: 15px;
+    background-color: #fff;
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode .video-container {
+    background-color: #444;
+    border-color: var(--border-color-dark);
+}
+
+body.dark-mode.darker .video-container {
+    background-color: #333;
+    border-color: var(--border-color-darker);
+}
+
+.video-container:hover {
+    transform: scale(1.05);
+}
+
+.video-player {
+    height: 100%;
+    width: 100%;
+    border-radius: 30px; /* More rounded */
+}
+
+.video-player > * {
+    border-radius: 30px;
+}
+
+.username-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1650px) {
+    .video-container {
+        flex-basis: 350px;
+        min-height: 220px;
+    }
+}
+
+/* ----------------- Room Styling | Controls ------------------ */
+#controls-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 25px;
+    position: fixed;
+    bottom: 30px;
+    z-index: 100;
+}
+
+.control-icon {
+    height: 55px;
+    width: 55px;
+    box-shadow: var(--shadow);
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%; /* Fully rounded */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.control-icon:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+#leave-btn {
+    background-color: rgb(255, 80, 80);
+    color: white;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 450px) {
+    .control-icon {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+
+/* ------------------ Theme Toggle Button ------------------ */
+.theme-toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+  
+  .theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+  }
+  
+  .theme-toggle:hover {
+    transform: scale(1.2);
+    background-color: #f0f0f0;
+  }
+  
+  .toggle-icon {
+    font-size: 24px;
+    transition: opacity 0.3s ease;
+    color: #ff6ec7; /* Pink color */
+  }
+  
+  .sun {
+    opacity: 1;
+  }
+  
+  .moon {
+    opacity: 0;
+  }
+  
+  body.dark-mode .sun {
+    opacity: 0;
+  }
+  
+  body.dark-mode .moon {
+    opacity: 1;
+  }
