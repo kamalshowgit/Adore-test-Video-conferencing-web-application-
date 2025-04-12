@@ -1,65 +1,95 @@
 {% extends 'base/main.html' %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+<!-- Theme Toggle -->
+<div class="theme-toggle-wrapper">
+    <div class="theme-toggle" onclick="toggleTheme()">
+      <div class="toggle-icon sun">🌞</div>
+      <div class="toggle-icon moon">🌙</div>
+    </div>
+  </div>
+
 
 <main>
+  <section id="form-container">
+    <img id="logo" src="{% static 'images/chat-icon.png' %}" alt="iAMChat Logo"/>
 
-    <section id="form-container">
+    <div id="welcome-message">
+      <h1></h1>
+      <h2>Let’s chat, laugh, and make memories together! 🎉</h2>
+    </div>
 
-        <img id="logo" src="{% static 'images/chat-icon.png' %}"/>
-
-        <div id="welcome-message">
-            <h1>Welcome to Adore</h1>
-            <p>A group video calling platform made just for you!</p>
+    <form id="form">
+      <div class="field-wrapper">
+        <div class="form-field">
+          <label>Room Tag:</label>
+          <input name="room" placeholder="Enter a room name..." style="text-transform:uppercase"/>
         </div>
 
-        <form id="form">
-            <div class="field-wrapper">
+        <div class="form-field">
+          <label>Your Name:</label>
+          <input name="name" placeholder="Enter your name..." style="text-transform:uppercase"/>
+        </div>
 
-                <div class="form-field">
-                    <label>Room Tag:</label>
-                    <input name="room" placeholder="Enter a room name..."  style="text-transform:uppercase"/>
-                </div>
-
-                <div class="form-field">
-                    <label>Your Name:</label>
-                    <input name="name" placeholder="Enter your name..."  style="text-transform:uppercase"/>
-                </div>
-
-                <div class="form-field">
-                    <input type="submit" value="Join Stream" />
-                </div>
-            </div>
-        </form>
-    </section>
+        <div class="form-field">
+          <input type="submit" value="Join Stream" />
+        </div>
+      </div>
+    </form>
+  </section>
 </main>
 
 <script>
-    let form = document.getElementById('form')
+  // Handle form submission
+  let form = document.getElementById('form')
 
-    let handleSubmit = async (e) => {
-        e.preventDefault()
-        let room = e.target.room.value.toUpperCase()
-        let name = e.target.name.value
+let handleSubmit = async (e) => {
+    e.preventDefault()
+    let room = e.target.room.value.toUpperCase()
+    let name = e.target.name.value
 
-        let response = await fetch(`/get_token/?channel=${room}`)
-        let data = await response.json()
+    let response = await fetch(`/get_token/?channel=${room}`)
+    let data = await response.json()
 
-        let UID = data.uid
-        let token = data.token
+    let UID = data.uid
+    let token = data.token
 
-        sessionStorage.setItem('UID', UID)
-        sessionStorage.setItem('token', token)
-        sessionStorage.setItem('room', room)
-        sessionStorage.setItem('name', name)
+    sessionStorage.setItem('UID', UID)
+    sessionStorage.setItem('token', token)
+    sessionStorage.setItem('room', room)
+    sessionStorage.setItem('name', name)
 
-        window.open('/room/', '_self')
-    }
+    window.open('/room/', '_self')
+}
+
+form.addEventListener('submit', handleSubmit)
 
 
+  // Dark mode toggle logic
+  function toggleTheme() {
+    const isDark = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('dark-mode', isDark);
+  }
 
-    form.addEventListener('submit', handleSubmit)
+  // Load preference
+  if (localStorage.getItem('dark-mode') === 'true') {
+    document.body.classList.add('dark-mode');
+  }
+
+  // Dark mode toggle logic
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('dark-mode', isDark);
+}
+
+// Load preference
+if (localStorage.getItem('dark-mode') === 'true') {
+  document.body.classList.add('dark-mode');
+}
+
 </script>
 
-{% endblock content %}
 
+{% endblock content %}
