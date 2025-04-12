@@ -4,11 +4,14 @@ This is a simple guide on how to create a video calling app using the Agora plat
 
 ![Video Calling App](app_screenshot.png)
 
+
+Mobile App
 <p float="left">
   <img src="app_screenshot1.png" alt="Video Calling App" width="45%" />
   <img src="app_screenshot2.png" alt="Video Calling App" width="45%" />
 </p>
 
+WEB App
 ![Video Calling App](app_screenshot3.png)
 ![Video Calling App](app_screenshot4.png)
 
