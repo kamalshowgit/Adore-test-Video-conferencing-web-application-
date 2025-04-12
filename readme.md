@@ -4,6 +4,11 @@ This is a simple guide on how to create a video calling app using the Agora plat
 
 ![Video Calling App](app_screenshot.png)
 
+![Video Calling App](app_screenshot1.png)
+![Video Calling App](app_screenshot2.png)
+![Video Calling App](app_screenshot3.png)
+![Video Calling App](app_screenshot4.png)
+
 <br>In picture,
 <br>@kamal - https://www.linkedin.com/in/kamalsonikgp/
 <br>@sindhu - https://www.linkedin.com/in/sindhuvankudoth/
