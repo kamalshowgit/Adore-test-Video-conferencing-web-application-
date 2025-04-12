@@ -2,7 +2,7 @@
 
 This is a simple guide on how to create a video calling app using the Agora platform and Django framework. The app allows users to make video calls with each other in a web browser. Before you begin, make sure you have the necessary Agora API keys.
 
-<img src="app_screenshot.png" alt="Video Calling App" width="30%" />
+<img src="app_screenshot.png" alt="Video Calling App" width="60%" />
 
 ## Mobile App
 
@@ -14,8 +14,8 @@ This is a simple guide on how to create a video calling app using the Agora plat
 ## WEB App
 
 <p float="left">
-  <img src="app_screenshot3.png" alt="Video Calling App" width="30%" />
-  <img src="app_screenshot4.png" alt="Video Calling App" width="30%" />
+  <img src="app_screenshot3.png" alt="Video Calling App" width="60%" />
+  <img src="app_screenshot4.png" alt="Video Calling App" width="60%" />
 </p>
 
 <br>In picture,
